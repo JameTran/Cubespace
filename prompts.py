@@ -2,11 +2,8 @@ import os
 import openai
 import requests
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-<<<<<<< Updated upstream
-=======
-#openai.api_key = "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"
->>>>>>> Stashed changes
+#openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 
 def generate_text(prompt : str) -> str:
@@ -25,16 +22,18 @@ def generate_image(prompt : str) -> str:
         size="1024x1024"
     )
     #returns a URL
+    image_url = generate_image("bananas in the style of Claude Monet")
+    img_data = requests.get(image_url).content
+    with open('image_name.jpg', 'wb') as handler:
+        handler.write(img_data)
     return response['data'][0]['url']
-<<<<<<< Updated upstream
-=======
 
 def main():
     print(generate_text("Write a marketing blurb about bananas"))
 
-    print(generate_image("bananas in the style of Claude Monet"))
-    #img_data = requests.get(image_url).content
-    #with open('image_name.jpg', 'wb')
+    image_url = generate_image("bananas in the style of Claude Monet")
+    img_data = requests.get(image_url).content
+    with open('image_name.jpg', 'wb') as handler:
+        handler.write(img_data)
 if __name__ == "__main__":
     main()
->>>>>>> Stashed changes
