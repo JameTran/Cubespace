@@ -21,17 +21,5 @@ def generate_image(prompt : str) -> str:
         n=1,
         size="1024x1024"
     )
-    #returns a URL
-    image_url = generate_image("bananas in the style of Claude Monet")
-    img_data = requests.get(image_url).content
-    with open('image_name.jpg', 'wb') as handler:
-        handler.write(img_data)
     return response['data'][0]['url']
 
-def main():
-    image_url = generate_image("bananas in the style of Claude Monet")
-    img_data = requests.get(image_url).content
-    with open('image_name.jpg', 'wb') as handler:
-        handler.write(img_data)
-if __name__ == "__main__":
-    main()
