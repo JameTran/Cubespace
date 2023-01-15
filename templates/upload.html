@@ -60,9 +60,23 @@
             border-radius: 20px;
             color:rgb(151, 141, 207)
         }
+        input[type=submit]{
+            width: 1024px;
+            margin: auto;
+            height: 70px;
+            text-align: center;
+            background-color: rgb(179, 177, 177);
+            border-radius: 20px;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .round{
             border-radius: 20px;
         }
+        
         
 
     </style>
@@ -73,7 +87,7 @@
     <div class="w3-top">
         <div class="w3-bar w3-gray w3-card" id="myNavbar">
             <a class="navbar-brand w3-display-left" style= "padding:15px" href="#"><img class="resize" src="../static/black_logo.PNG"></a>
-            <a href="#home" class="w3-bar-item w3-button w3-wide" style="padding: 15px 75px">Cubespace</a>
+            <a href="/" class="w3-bar-item w3-button w3-wide" style="padding: 15px 75px">Cubespace</a>
         </div>
     </div>
 
@@ -86,10 +100,10 @@
                 <div class="w3-display-container w3-text-white" style="padding:25px; width: 1500px;">{{ caption }}</div>
             {% endif %}
             {% if image %}
-                <img src="../static/image_name.jpg">
+                <img src="../static/image_name.jpg"class="center">
             {% endif %}
-            <div class="w3-display-container w3-text-white" style="padding:25px; width: 1500px;">Click "Upload" if you'd like to post this to twitter.</div>
-            <input type="submit" value="Upload">
+            <h3 class="w3-display-container w3-text-white" style="padding:25px; width: 1500px;">Click "Upload" if you'd like to post this to twitter.</h3>
+            <input type="submit" value="Upload" class="w3-xxlarge">
         </form>
     </div>
 
