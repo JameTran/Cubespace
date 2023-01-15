@@ -8,15 +8,8 @@ prompts.api_key = os.getenv("OPENAI_API_KEY")
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        caption = prompts.Completion.create(
-            model = "text-davinci-003",
-            prompt = "",
-            max_tokens = 64,
-            temperature = 0.5      
-        )
-        image = prompts.Image.create(
-            prompt = ""
-        )
+        caption = prompts.generate_text(request.form("textname"))
+        image = prompts.generate_text(request.form("imagename"))
 
-    return render_template("index.html")
+    return render_template("index.html", caption=caption, image=image)
 
