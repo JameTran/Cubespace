@@ -52,5 +52,5 @@ def generate_prompt(product):
       #CuriosityStream\n\nProduct:{} \n\nAd:""".format(product)
 
 def generate_image_prompt(image):
-    return "{} ,  in a minimalist, Flat, corporate style".format(image)
+    return "{},  in a minimalist, Flat, corporate style".format(image)
 
