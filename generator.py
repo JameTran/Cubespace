@@ -14,7 +14,8 @@ def webapp2():
 def upload():
     caption_input = request.form.get('textname')
     image_input = request.form.get('imagename')
-    caption = prompts.generate_text(caption_input)
+    prompt = prompts.generate_prompt(caption_input)
+    caption = prompts.generate_text(prompt)
     image = prompts.generate_image(image_input)
     print(caption)
     if request.method == "POST":
@@ -26,6 +27,5 @@ def upload():
 @app.route("/success", methods=("GET", "POST"))
 def success():
     return render_template("success.html")
-
 if __name__ == "__main__":
     app.run()
