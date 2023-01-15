@@ -97,7 +97,13 @@
 
     <!-- Output -->
     <div class="w3-container w3-grayscale-min" style="padding:128px 16px" id="output">
-        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>
+        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>       
+        {% if caption %}
+        <div class="caption">{{ caption }}</div>
+        {% endif %}
+        {% if image %}
+        <div class="image">{{ image }}</div>
+        {% endif %}
         <p class="w3-center w3-large">Do you like it?</p>
         <div class="w3-row-padding w3-center" style="margin-top:64px">
             <img class="round" src="bananas.jpg">
@@ -117,33 +123,6 @@
     <footer class="w3-center w3-black w3-padding-64">
         <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Restart</a>
     </footer>
-    
-    <script>
-        // Modal Image Gallery
-        function onClick(element) {
-            document.getElementById("img01").src = element.src;
-            document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
-        }
-
-
-        // Toggle between showing and hiding the sidebar when clicking the menu icon
-        var mySidebar = document.getElementById("mySidebar");
-
-        function w3_open() {
-            if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-            } else {
-                mySidebar.style.display = 'block';
-            }
-        }
-
-        // Close the sidebar with the close button
-        function w3_close() {
-            mySidebar.style.display = "none";
-        }
-    </script>
     
     </body>
     
