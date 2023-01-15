@@ -16,8 +16,6 @@ def generate_text(prompt : str) -> str:
         frequency_penalty=0,
         presence_penalty=0
     )
-    '''with open('caption.txt', 'w') as f:
-        f.write(response.choices[0].text)'''
     return response.choices[0].text
 
 def generate_image(prompt : str) -> str:
