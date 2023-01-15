@@ -1,16 +1,16 @@
 import tweepy
 import os
 
-def main():
+def create_tweet(text:str, image_path:str):
     twitter_auth_keys = {
 
         "consumer_key"        : os.environ.get("CONSUMER_KEY"),
 
         "consumer_secret"     : os.environ.get("CONSUMER_SECRET"),
 
-        "access_token"        : "1041168468739932161-054KuEx04kP1grfyMHIq7kiNlYuExq",
+        "access_token"        : os.environ.get("ACCESS_TOKEN"),
 
-        "access_token_secret" : "UYlq8ZiKW6qUN7qqSHAIxLeGixSI1QWhB4jDjY3OUOryL"
+        "access_token_secret" : os.environ.get("ACCESS_TOKEN_SECRET")
 
     }
 
@@ -38,18 +38,18 @@ def main():
 
     # Upload image
 
-    media = api.media_upload("test.png")
+    media = api.media_upload(image_path)
 
  
 
     # Post tweet with image
 
-    tweet = "Testing please ignore by the way look at this duck"
+    tweet = text
 
     post_result = api.update_status(status=tweet, media_ids=[media.media_id])
 
- 
+def main():
+    create_tweet("testing again sorry", "test.png")
 
 if __name__ == "__main__":
-
     main()
