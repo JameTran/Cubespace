@@ -13,6 +13,8 @@ def generate_text(prompt : str) -> str:
         temperature=0.5,
         max_tokens=64
     )
+    '''with open('caption.txt', 'w') as f:
+        f.write(response.choices[0].text)'''
     return response.choices[0].text
 
 def generate_image(prompt : str) -> str:
@@ -21,5 +23,8 @@ def generate_image(prompt : str) -> str:
         n=1,
         size="1024x1024"
     )
+    img_data = requests.get(response['data'][0]['url']).content
+    with open('./static/image_name.jpg', 'wb') as handler:
+        handler.write(img_data)
     return response['data'][0]['url']
 
