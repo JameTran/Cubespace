@@ -1,7 +1,7 @@
 import os
 import openai
 
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 response = openai.Completion.create(
   model="text-davinci-003",
   prompt="Create promo copy for the FamilyTime mobile application. It allows unlimited uploading, special filters and makes it easy to create albums of photos and videos. It runs on iOS and Android:",
