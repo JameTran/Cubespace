@@ -1,20 +1,26 @@
 import os
 import prompts
+import twitter
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 prompts.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/", methods=("GET", "POST"))
-def index():
+def webapp2():
     if request.method == "POST":
-        caption = prompts.generate_text(request.form("textname"))
-        image = prompts.generate_text(request.form("imagename"))
+        caption = prompts.generate_text(request.form["textname"])
+        image = prompts.generate_text(request.form["imagename"])
         return redirect(url_for("webapp2", caption=caption, image=image))
 
     caption = request.args.get("caption")
     image = request.args.get("image")
     return render_template("webapp2.html", caption=caption, image=image)
+
+@app.route("/upload", methods=("GET, POST"))
+def upload():
+    if request.method == "POST":
+        twitter.create_tweet(caption, )
 
 if __name__ == "__main__":
     app.run()
