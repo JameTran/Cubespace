@@ -91,18 +91,17 @@
 
     <!-- Output -->
     <div class="w3-container w3-grayscale-min" style="padding:128px 16px" id="output">
-        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>
+        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>       
+        {% if caption %}
+        <div class="caption">{{ caption }}</div>
+        {% endif %}
+        {% if image %}
+        <div class="image">{{ image }}</div>
+        {% endif %}
         <p class="w3-center w3-large">Do you like it?</p>
         <div class="w3-row-padding w3-center" style="margin-top:64px">
         </div>
     </div>
-    
-    {% if caption %}
-    <div class="caption">{{ caption }}</div>
-    {% endif %}
-    {% if image %}
-    <div class="image">{{ image }}</div>
-    {% endif %}
     
     <!-- Modal for full size images on click-->
     <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
