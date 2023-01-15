@@ -16,7 +16,8 @@ def upload():
     image_input = request.form.get('imagename')
     prompt = prompts.generate_prompt(caption_input)
     caption = prompts.generate_text(prompt)
-    image = prompts.generate_image(image_input)
+    image_prompt = prompts.generate_image_prompt(image_input)
+    image = prompts.generate_image(image_prompt)
     print(caption)
     if request.method == "POST":
         print(caption)
