@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cubespace</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", sans-serif
+        }
+
+        body,
+        html {
+            height: 100%;
+            line-height: 1.8;
+            background: rgb(173, 152, 206);
+            background: radial-gradient(circle, rgba(173,152,206,1) 0%, rgb(27, 22, 55) 100%);
+            
+        }
+
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("/laptop.PNG");
+            /*background-color: purple;*/
+            /*background: rgb(214,164,255);*/
+            /*background: radial-gradient(circle, rgba(214,164,255,1) 0%, rgba(88,9,121,1) 57%, rgba(2,0,36,1) 100%);*/
+            background: rgb(125,94,176);
+            background: radial-gradient(circle, rgba(125,94,176,1) 0%, rgba(21,15,55,1) 100%);
+            
+            min-height: 105%;
+        }
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+        .resize {
+            width: 50px;
+            height: auto;
+        }
+        .center{
+            text-align: center;
+            margin: auto;
+        }
+        input[type=text]{
+            transition: width 0.4s ease-in-out;
+            background-color: transparent;
+            padding-left: 48px;
+            border-color: rgb(106, 99, 144);
+            border-radius: 20px;
+            color:rgb(106, 99, 144)
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-gray w3-card" id="myNavbar">
+            <a class="navbar-brand" href="#"><img class="resize" src="black_logo.png"></a>
+            <a href="#home" class="w3-bar-item w3-button w3-wide">Cubespace</a>
+        </div>
+    </div>
+
+    <!-- Header with full-height image -->
+    <div class="bgimg-1 center w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-middle w3-text-white" style="padding:48px">
+            <span class="w3-jumbo w3-wide w3-hide-small">Welcome to Cubespace</span><br>
+            <form>
+                <label for="imagename" class="w3-xxlarge">What type of image would you like for your post?<br></label>
+                <input type="text" id="imagename" name="imagename" placeholder="Type Here..." class=" w3-xxlarge">
+                <label for="textname" class="w3-xxlarge"><br>What would you like your post to talk about?<br></label>
+                <input type="text" id="textname" name="textname" placeholder="Type Here..." class=" w3-xxlarge">
+            </form>
+            <p><a href="#output"
+                    class="w3-button w3-light-grey w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-on"
+                    method="POST">Generate Ideas</a></p>
+        </div>
+    </div>
+
+    <!-- Output -->
+    <div class="w3-container w3-grayscale-min" style="padding:128px 16px" id="output">
+        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>
+        <p class="w3-center w3-large">Do you like it?</p>
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+        </div>
+    </div>
+    
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Restart</a>
+    </footer>
+    
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+
+        // Toggle between showing and hiding the sidebar when clicking the menu icon
+        var mySidebar = document.getElementById("mySidebar");
+
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+            } else {
+                mySidebar.style.display = 'block';
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+        }
+    </script>
+    
+    </body>
+    
+    </html>
