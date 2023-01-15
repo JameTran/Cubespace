@@ -17,7 +17,7 @@ def webapp2():
     image = request.args.get("image")
     return render_template("webapp2.html", caption=caption, image=image)
 
-@app.route("/upload", methods=("GET, POST"))
+@app.route("/upload", methods=("GET", "POST"))
 def upload():
     if request.method == "POST":
         twitter.create_tweet(caption, )
