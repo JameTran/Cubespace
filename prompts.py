@@ -1,7 +1,8 @@
 import os
 import openai
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 
 def generate_text(prompt : str) -> str:
@@ -21,3 +22,10 @@ def generate_image(prompt : str) -> str:
     )
     #returns a URL
     return response['data'][0]['url']
+
+def main():
+    print(generate_text("Write a marketing blurb about bananas"))
+
+    print(generate_image("bananas in the style of Claude Monet"))
+if __name__ == "__main__":
+    main()
