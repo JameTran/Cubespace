@@ -8,19 +8,24 @@ prompts.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/", methods=("GET", "POST"))
 def webapp2():
-    if request.method == "POST":
-        caption = prompts.generate_text(request.form["textname"])
-        image = prompts.generate_text(request.form["imagename"])
-        return redirect(url_for("webapp2", caption=caption, image=image))
-
-    caption = request.args.get("caption")
-    image = request.args.get("image")
-    return render_template("webapp2.html", caption=caption, image=image)
+    return render_template("webapp2.html")
 
 @app.route("/upload", methods=("GET", "POST"))
 def upload():
+    caption_input = request.form.get('textname')
+    image_input = request.form.get('imagename')
+    caption = prompts.generate_text(caption_input)
+    image = prompts.generate_image(image_input)
+    print(caption)
     if request.method == "POST":
-        twitter.create_tweet(caption, )
+        print(caption)
+        twitter.create_tweet(caption, './static/image_name.jpg')
+        redirect("success.html")
+    return render_template("upload.html", caption=caption, image=image)
+
+@app.route("/success", methods=("GET", "POST"))
+def success():
+    return render_template("success.html")
 
 if __name__ == "__main__":
     app.run()

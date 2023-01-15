@@ -46,7 +46,7 @@
         }
         .resize {
             width: 50px;
-            height: 50px;
+            height: auto;
         }
         .center{
             text-align: center;
@@ -77,41 +77,21 @@
         </div>
     </div>
 
+    
     <!-- Header with full-height image -->
     <div class="bgimg-1 center w3-display-container w3-grayscale-min" id="home">
-        <div class="w3-display-middle w3-text-white" style="padding:100px; width: 1500px;">
-            <span class="w3-jumbo w3-wide w3-hide-small">Welcome to Cubespace</span><br><br>
-            <form action="/upload" method="POST">
-                <label for="imagename" class="w3-xxlarge">What type of image would you like for your post?<br></label>
-                <input type="text" id="imagename" name="imagename" placeholder="Type Here..." class=" w3-xxlarge"><br>
-                <label for="textname" class="w3-xxlarge">What would you like your post to talk about?<br></label>
-                <input type="text" id="textname" name="textname" placeholder="Type Here..." class="w3-xxlarge"><br><br>
-                <input type="submit" value="Go">
-            </form>
-        </div>
+        <br><br><br><br><br>
+        <form action = "/success" method="POST">
+            {% if caption %}
+                <div class="w3-display-container w3-text-white" style="padding:25px; width: 1500px;">{{ caption }}</div>
+            {% endif %}
+            {% if image %}
+                <img src="../static/image_name.jpg">
+            {% endif %}
+            <div class="w3-display-container w3-text-white" style="padding:25px; width: 1500px;">Click "Upload" if you'd like to post this to twitter.</div>
+            <input type="submit" value="Upload">
+        </form>
     </div>
-
-    <!-- Output 
-    <div class="w3-container w3-grayscale-min" style="padding:128px 16px" id="output">
-        <h3 class="w3-center">HERE'S WHAT WE CAME UP WITH:</h3>       
-        {% if caption %}
-        <div class="caption">{{ caption }}</div>
-        {% endif %}
-        {% if image %}
-        <img src=image>
-        {% endif %}
-        <p class="w3-center w3-large">Do you like it?</p>
-        </div>
-    </div>-->
-    
-    <!-- Modal for full size images on click
-    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-        <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-            <img id="img01" class="w3-image">
-            <p id="caption" class="w3-opacity w3-large"></p>
-        </div>
-    </div>-->
     
     <!-- Footer 
     <footer class="w3-center w3-black w3-padding-64">

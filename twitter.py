@@ -4,13 +4,13 @@ import os
 def create_tweet(text:str, image_path:str):
     twitter_auth_keys = {
 
-        "consumer_key"        : os.environ.get("CONSUMER_KEY"),
+        "consumer_key"        : os.getenv("CONSUMER_KEY"),
 
-        "consumer_secret"     : os.environ.get("CONSUMER_SECRET"),
+        "consumer_secret"     : os.getenv("CONSUMER_SECRET"),
 
-        "access_token"        : os.environ.get("ACCESS_TOKEN"),
+        "access_token"        : os.getenv("ACCESS_TOKEN"),
 
-        "access_token_secret" : os.environ.get("ACCESS_TOKEN_SECRET")
+        "access_token_secret" : os.getenv("ACCESS_TOKEN_SECRET")
 
     }
 
@@ -34,7 +34,8 @@ def create_tweet(text:str, image_path:str):
 
     api = tweepy.API(auth)
 
- 
+    
+    print(os.getcwd())
 
     # Upload image
 
